@@ -1,4 +1,4 @@
-/* global colors and component effects */
+@import url('https://use.fontawesome.com/releases/v5.15.3/css/all.css'); /*Font Awesome Icons*/
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -16,4 +16,46 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
 
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+.head-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  width : 100%;
+  max-width: 700px;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 100%;
+  padding : 5px 10px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 0;
+  outline: none;
+  border-radius: 10px 0 0 10px;
+}
+
+#search-btn {
+  border: 0;
+  border-radius: 0 10px 10px 0;
+  height: 50px;
+  padding: 10px 20px;
+  margin: 0;
+  cursor: pointer;
+}
