@@ -1,6 +1,6 @@
 import Ipaddress from "./IpAddress"
 import Location from "./Location"
-import Timezone from "./timezone"
+import Timezone from "./Timezone"
 import Isp from "./Isp"
 
 export interface Props {
