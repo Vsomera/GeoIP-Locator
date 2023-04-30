@@ -5,9 +5,9 @@ const Search = () => {
     return (
         <form className="search-bar">
             <input 
-                type="text" placeholder="Search IP Address or Domain" />
+                type="text" 
+                placeholder="Search IP Address or Domain" />
             <button
-                id="search-btn"
                 type="submit">
                 <FontAwesomeIcon icon={faSearch} />
             </button>
