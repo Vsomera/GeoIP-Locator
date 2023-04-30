@@ -23,10 +23,12 @@ body {
 }
 
 .container {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  height: 20rem;
+  justify-content: space-between;
 }
 
 .head-container {
@@ -60,4 +62,13 @@ body {
   padding: 10px 20px;
   margin: 0;
   cursor: pointer;
+}
+
+.info-bar {
+  background-color: rgba(255, 255, 255, 0.87);
+  border-radius: 10px;
+  padding: 10px 40px;
+  color: #242424;
+  display: flex;
+  justify-content: space-between;
 }
