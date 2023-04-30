@@ -26,6 +26,7 @@ body {
   width: 50%;
   margin: 0 auto;
 }
+
 .head-container {
   display: flex;
   flex-direction: column;
