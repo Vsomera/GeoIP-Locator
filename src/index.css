@@ -22,6 +22,10 @@ body {
   min-height: 100vh;
 }
 
+body::-webkit-scrollbar {
+  display: none; /*Hides scroll bar but keep functionality*/
+}
+
 .container {
   width: 60%;
   margin: 0 auto;
@@ -29,12 +33,16 @@ body {
   flex-direction: column;
   height: 20rem;
   justify-content: space-between;
+  position: relative;
+  top: 2rem;
+  z-index: 1;
 }
 
 .head-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #242424;
 }
 
 .search-bar {
@@ -49,13 +57,19 @@ body {
   width: 100%;
   padding : 5px 10px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(36, 36, 36, 0.25);
   border: 0;
   outline: none;
   border-radius: 10px 0 0 10px;
 }
 
+::placeholder { 
+  color: rgba(255, 255, 255, 0.905);
+  opacity: 1; 
+}
+
 .search-bar button {
+  background-color: black;
   border: 0;
   border-radius: 0 10px 10px 0;
   height: 50px;
@@ -65,7 +79,7 @@ body {
 }
 
 .info-bar {
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: white;
   border-radius: 10px;
   padding: 10px 40px;
   color: #242424;
@@ -76,4 +90,7 @@ body {
 #map {
   height: 100vh;
   width: 100%;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
 }
