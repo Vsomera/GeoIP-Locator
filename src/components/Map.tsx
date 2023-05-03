@@ -19,7 +19,6 @@ export interface Props {
             id="map" 
             center={[props.latitude, props.longitude]} // array of latitude and longitude of where the map should look
             zoom={1} 
-            zoomControl={false} // disable default zoom control
             scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
