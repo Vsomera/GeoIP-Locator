@@ -14,12 +14,11 @@ const Search = (props: Props) => {
     }
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        // sends ip to app if all checks pass
         Ip === ''
-            ? alert('Please enter an IP')
+            ? (alert('Please enter an IP'), e.preventDefault())
             : isValidIP(Ip)
-                ? (e.preventDefault(), props.ipInfo(Ip), setIp(''))
-                : alert('Invalid IP Address')
+                ? (e.preventDefault(), props.ipInfo(Ip), setIp('')) // sends ip to app if all checks pass
+                : (alert('Invalid IP Address'), e.preventDefault(), setIp(''))
     }
 
     const onIpChange = (e: React.ChangeEvent<HTMLInputElement>) => {

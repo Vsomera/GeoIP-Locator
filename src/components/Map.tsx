@@ -1,25 +1,35 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent } from "react-leaflet"
 
 export interface Props { 
-    line1 : string
-    line2: string
+    latitude : number
+    longitude : number
  }
 
  const Map = (props : Props) => {
+
+    const MapFlyTo = () => {
+        const map = useMap();
+        map.flyTo([props.latitude, props.longitude], 13);
+        return null;
+    }
+
+
     return (
         <MapContainer 
             id="map" 
-            center={[49.282730,-123.120735]} // array of latitude and longitude of where the map should look
-            zoom={4} 
+            center={[props.latitude, props.longitude]} // array of latitude and longitude of where the map should look
+            zoom={1} 
+            zoomControl={false} // disable default zoom control
             scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-            <Marker position={[49.24966, -123.11934]}>
+            <MapFlyTo />
+            <Marker position={[props.latitude, props.longitude]}>
                 <Popup>
-                    {props.line1}
+                    {props.latitude}
                     <br /> 
-                    {props.line2}
+                    {props.longitude}
                 </Popup>
             </Marker>
         </MapContainer>

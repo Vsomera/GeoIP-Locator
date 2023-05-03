@@ -16,7 +16,7 @@ const InfoBar = (props : Props) => {
             <Ipaddress ip={props.ip} />
             <Location location={props.location} />
             <Timezone timezone={props.timezone} />
-            <Isp isp={props.isp} />
+            { props.isp !== "" && <Isp isp={props.isp} />}
         </div>
     )
 }

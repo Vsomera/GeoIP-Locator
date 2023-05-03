@@ -1,36 +1,55 @@
 import Header from './components/Header'
 import InfoBar from './components/InfoBar'
 import Map from './components/Map'
+
+import { useState } from 'react'
 import axios from 'axios'
 
 function App() {
-  const api_key = 'at_f15zuOqz6V9EWXNblGN9H9lZcPfCq'
-  const url = 'https://geo.ipify.org/api/v2/country,city,vpn?'
+
+  const [ip, updateIp] = useState("")
+  const [location, updateLoc] = useState("")
+  const [timezone, updateTimez] = useState("")
+  const [isp, updateIsp] = useState("")
+  const [lat, updateLat] = useState(49.282730)
+  const [long, updateLong] = useState(-123.120735)
+
   const ipInfo = (Ip : string) => {
     // returns geolocation info on the ip
-    axios.get(`${url}apiKey=${api_key}&ipAddress=${Ip}`)
-      .then(response => console.log(response.data))
-      .catch(err => console.log(err))
-    }
-   
-  
-  
+    const api_key = 'at_f15zuOqz6V9EWXNblGN9H9lZcPfCq'
+    const url = 'https://geo.ipify.org/api/v2/country,city?'
 
+    axios.get(`${url}apiKey=${api_key}&ipAddress=${Ip}`)
+    // updates states
+      .then(res => {
+        console.log(res.data)
+        updateIp(res.data.ip)
+        updateLoc(`${res.data.location.city}, 
+                  ${res.data.location.region}`)
+        updateTimez(`UTC ${res.data.location.timezone}`)
+        updateIsp(res.data.isp)
+        updateLong(res.data.location.lng)
+        updateLat(res.data.location.lat)
+      })
+      .catch(err => console.log(err))
+  }
+  
   return (
     <>
       <div className="container">
         <Header 
             ipInfo={ipInfo}
             title="IP Address Locator"/>
-        <InfoBar 
-            ip="192.168.239.255"
-            location="1234 Rupert St"
-            timezone="UTC - 5:00pm"
-            isp = "Slocan Park"/>
+        {ip !== "" &&       
+            <InfoBar 
+                ip= {ip}
+                location={location}
+                timezone={timezone}
+                isp = {isp} /> }
       </div>
       <Map 
-        line1="CSS3 Popup"
-        line2="Easily Customizable"/>
+        latitude={lat}
+        longitude={long}/>
     </>
   )
 }
