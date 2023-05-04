@@ -4,17 +4,22 @@ import Timezone from "./Timezone"
 import Isp from "./Isp"
 
 export interface Props {
-    ip : string | boolean
-    location : string | boolean
-    timezone : string | boolean
-    isp : string | boolean
+    ip : string 
+    location : { 
+        city: string
+        region: string
+    } 
+    timezone : string 
+    isp : string
 }
 
 const InfoBar = (props : Props) => {
+    console.log(props.location) // logs twice for sm reason
     return (
         <div className="info-bar">
             <Ipaddress ip={props.ip} />
-            <Location location={props.location} />
+            { (props.location.city || props.location.region) !== "" 
+            && <Location location={props.location} />}
             <Timezone timezone={props.timezone} />
             { props.isp !== "" && <Isp isp={props.isp} />}
         </div>

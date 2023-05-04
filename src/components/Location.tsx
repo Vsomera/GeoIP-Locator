@@ -1,11 +1,21 @@
-export interface Props { location : string | boolean}
+export interface Props { 
+    location: { 
+        city: string; 
+        region: string; 
+    } 
+}
 
-const Location = (props : Props) => {
+const Location = (props: Props) => {
+    // TODO : find a way to pass in location region and city in h2 element
+    const { city, region } = props.location;
     return (
-        <div>
-            <p>Location</p>
-            <h2>{props.location}</h2>
-        </div>
+        <>
+            <div>
+                <p>Location</p>
+                <h2>{city}, {region}</h2>   
+            </div>
+            <hr />
+        </>
     )
 }
 

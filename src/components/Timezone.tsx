@@ -1,4 +1,4 @@
-export interface Props { timezone : string | boolean}
+export interface Props { timezone : string | boolean }
 
 const Timezone = (props : Props) => {
     return (

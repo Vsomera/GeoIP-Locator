@@ -7,8 +7,17 @@ import axios from 'axios'
 
 function App() {
 
+  interface LocationState { // must be an object with city and region
+    city: string;
+    region: string;
+  }
+
   const [ip, updateIp] = useState("")
-  const [location, updateLoc] = useState("")
+  const [location, updateLoc] = useState<LocationState>(
+    { 
+      city: "", 
+      region: "" 
+    })
   const [timezone, updateTimez] = useState("")
   const [isp, updateIsp] = useState("")
   const [lat, updateLat] = useState(49.282730)
@@ -24,8 +33,10 @@ function App() {
       .then(res => {
         console.log(res.data)
         updateIp(res.data.ip)
-        updateLoc(`${res.data.location.city}, 
-                  ${res.data.location.region}`)
+        updateLoc({
+          city : `${res.data.location.city}`, 
+          region : `${res.data.location.region}`
+        })
         updateTimez(`UTC ${res.data.location.timezone}`)
         updateIsp(res.data.isp)
         updateLong(res.data.location.lng)
