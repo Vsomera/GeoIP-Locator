@@ -1,6 +1,7 @@
 import Header from './components/Header'
 import InfoBar from './components/InfoBar'
 import Map from './components/Map'
+import { isValidIP } from './components/Search';
 
 import { useState } from 'react'
 import axios from 'axios'
@@ -24,11 +25,13 @@ function App() {
   const [long, updateLong] = useState(-123.120735)
 
   const ipInfo = (Ip : string) => {
-    // returns geolocation info on the ip
+    // gets geolocation info on the ip
     const api_key = 'at_f15zuOqz6V9EWXNblGN9H9lZcPfCq'
     const url = 'https://geo.ipify.org/api/v2/country,city?'
+    // if Ip is an ip address, search by IP, else search by domain name
+    const method = isValidIP(Ip) ? "ipAddress" : "domain" 
 
-    axios.get(`${url}apiKey=${api_key}&ipAddress=${Ip}`)
+    axios.get(`${url}apiKey=${api_key}&${method}=${Ip} `)
     // updates states
       .then(res => {
         console.log(res.data)

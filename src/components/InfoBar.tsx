@@ -14,7 +14,6 @@ export interface Props {
 }
 
 const InfoBar = (props : Props) => {
-    console.log(props.location) // logs twice for sm reason
     return (
         <div className="info-bar">
             <Ipaddress ip={props.ip} />
