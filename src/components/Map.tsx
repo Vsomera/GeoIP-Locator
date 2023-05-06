@@ -10,7 +10,9 @@ const Map = (props: Props) => {
     const MapFlyTo = () => {
         // flies to updated marker
         const map = useMap();
-        map.flyTo([props.latitude, props.longitude], 13);
+        window.innerWidth <= 1200 
+            ? map.flyTo([(props.latitude + 0.005), props.longitude], 16)
+            : map.flyTo([props.latitude, props.longitude], 13)
         return null;
     }
 
