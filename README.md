@@ -24,10 +24,10 @@ Install dependencies
   npm install
 ```
 
-Start the server
+Start development server
 
 ```bash
-  npm run build
+  npm run dev
 ```
 
 
