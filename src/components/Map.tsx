@@ -8,6 +8,7 @@ export interface Props {
 const Map = (props: Props) => {
 
     const MapFlyTo = () => {
+        // flies to updated marker
         const map = useMap();
         map.flyTo([props.latitude, props.longitude], 13);
         return null;
@@ -25,9 +26,9 @@ const Map = (props: Props) => {
             <MapFlyTo />
             <Marker position={[props.latitude, props.longitude]}>
                 <Popup>
-                    {props.latitude}
+                    Latitude : {props.latitude}
                     <br />
-                    {props.longitude}
+                    Longitude : {props.longitude}
                 </Popup>
             </Marker>
         </MapContainer>
