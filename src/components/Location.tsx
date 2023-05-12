@@ -10,7 +10,7 @@ const Location = (props: Props) => {
     const { city, region } = props.location;
     return (
         <>
-            <div>
+            <div className="item">
                 <p>Location</p>
                 <h2>{city}, {region}</h2>   
             </div>

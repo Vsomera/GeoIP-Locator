@@ -4,7 +4,7 @@ const Isp = (props : Props) => {
     return (
         <>
             <hr />
-            <div>
+            <div className="item">
                 <p>ISP</p>
                 <h2>{props.isp}</h2>
             </div>

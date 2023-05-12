@@ -62,8 +62,8 @@ function App() {
                 isp = {isp} /> }
       </div>
       <Map 
-        latitude={lat}
-        longitude={long}/>
+          latitude={lat}
+          longitude={long}/>
     </>
   )
 }

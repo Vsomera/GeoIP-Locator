@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"
+import { useState } from "react";
 
 export interface Props {
     latitude: number
@@ -6,6 +7,7 @@ export interface Props {
 }
 
 const Map = (props: Props) => {
+
 
     const MapFlyTo = () => {
         // flies to updated marker
@@ -21,6 +23,7 @@ const Map = (props: Props) => {
             id="map"
             center={[props.latitude, props.longitude]} // array of latitude and longitude of where the map should look
             zoom={1}
+            zoomControl={ window.innerWidth <= 1200 ? false : true} 
             scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
