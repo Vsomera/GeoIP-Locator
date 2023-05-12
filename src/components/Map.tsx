@@ -1,5 +1,4 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"
-import { useState } from "react";
 
 export interface Props {
     latitude: number
